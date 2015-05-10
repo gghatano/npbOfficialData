@@ -9,8 +9,6 @@ getPlayerSeasonData <- function(profile_page_url = "http://bis.npb.or.jp/players
 
   profile_page_html = rvest::html(profile_page_url)
 
-  profile_page_html = rvest::html("http://bis.npb.or.jp/players/21725117.html")
-
   ## ポジション
   position =
     profile_page_html %>%
@@ -37,8 +35,8 @@ getPlayerSeasonData <- function(profile_page_url = "http://bis.npb.or.jp/players
     year_stats_df =
       year_stats_table %>%
       dplyr::mutate(SINGLE = H - DOUBLE - TRIPLE - HR) %>%
-      mutate(NAME = player_name) %>%
-      filter(TEAM != "通　算") %>%
+      dplyr::mutate(NAME = player_name) %>%
+      dplyr::filter(TEAM != "通　算") %>%
       dplyr::select(YEAR, TEAM, NAME, PA, AB,
                     H, SINGLE, DOUBLE, TRIPLE, HR, BASE,
                     RUN, RBI, SO,
@@ -56,3 +54,4 @@ getPlayerSeasonData <- function(profile_page_url = "http://bis.npb.or.jp/players
       return
   }
 }
+
