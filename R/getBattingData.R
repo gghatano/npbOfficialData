@@ -51,6 +51,7 @@ getPlayerSeasonData <- function(profile_page_url = "http://bis.npb.or.jp/players
                              "WILD", "BOK", "RUNS", "EARNEDRUN", "ERA"))
     year_stats_table %>%
       dplyr::filter(TEAM != "通　算") %>%
+      dplyr::mutate(NAME = player_name) %>%
       return
   }
 }
