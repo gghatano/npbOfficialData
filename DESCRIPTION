@@ -1,0 +1,11 @@
+Package: npbOfficialData
+Type: Package
+Title: npbOfficialData
+Version: 0.1
+Date: 2015-05-10
+Author: gg_hatano
+Maintainer: gghatano<adad0405@gmail.com>
+Description: Get the baseball player data from NPB official profile page.
+License: MIT + file LICENCE
+Imports: data.table, dplyr, rvest
+LazyData: TRUE
